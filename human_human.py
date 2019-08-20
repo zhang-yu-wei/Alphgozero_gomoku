@@ -1,7 +1,8 @@
 import os
 from Gomoku import Board, Game
-
+import numpy as np
 os.environ["CUDA_VISIBLE_DEVICES"]=""
+
 
 class Human(object):
     """human player"""
@@ -26,6 +27,7 @@ class Human(object):
     def __str__(self):
         return "Human {}".format(self.player)
 
+
 def run():
     board = Board(width=6, height=6, n_in_row=4)
     game = Game(board)
@@ -33,7 +35,8 @@ def run():
     human_player1 = Human()
     human_player2 = Human()
 
-    game.start_play(human_player1, human_player2, is_shown=1)
+    game.start_play(human_player1, human_player2, np.random.randint(0, 2), is_shown=1)
+
 
 if __name__ == '__main__':
     run()

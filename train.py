@@ -114,7 +114,7 @@ class TrainPipeline():
 										loss))
 			return loss
 
-	def policy_evaluate(self, n_games=1):
+	def policy_evaluate(self, n_games=2):
 		"Evaluate the trained policy by beating against the past version"
 		try:
 			old_policy_value_net = PolicyValueNet(self.board_width,
@@ -143,6 +143,7 @@ class TrainPipeline():
 		for i in range(n_games):
 			winner = self.game.start_play(current_mcts_player,
 										  old_mcts_player,
+										  start_player=i,
 										  is_shown=1)
 			# winner =1 : current mscts ;  winner = 2 : old mcts; winner = -1 : Tie
 			if winner != -1:

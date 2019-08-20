@@ -211,9 +211,9 @@ class Game(object):
 					print(' '.center(2), end=' ')
 			print('')
 
-	def start_play(self, player1, player2, is_shown=1): # what is  inside the player1?
+	def start_play(self, player1, player2, start_player, is_shown=1): # what is  inside the player1?
 		"""start a game between two human players"""
-		self.board.init_board()
+		self.board.init_board(start_player=start_player)
 
 		# player settings
 		p1, p2 = self.board.players  # remember board.players is only a list
